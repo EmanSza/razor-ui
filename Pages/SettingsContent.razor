@@ -1,0 +1,24 @@
+﻿<div class="settings-container @settingsContainerClass slide-left-back" style="@(!ShowSettingsBool ? "display:none;" : "")">
+    <header>Settings</header>
+    
+    <button @onclick="HandleGoBackSettings">Back</button>
+</div>
+
+@code {
+    [Parameter]
+    public bool showTurnBool { get; set; }
+    [Parameter]
+    public bool ShowSettingsBool { get; set; }
+    
+    [Parameter] public string settingsContainerClass { get; set; }
+
+
+    [Parameter]
+    public EventCallback GoBackSettings { get; set; }
+    
+
+    private async Task HandleGoBackSettings()
+    {
+        await GoBackSettings.InvokeAsync();
+    }
+}

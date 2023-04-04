@@ -1,0 +1,78 @@
+﻿.main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.main-header {
+    font-family: 'NewRodinProBold', serif;
+    font-weight: bold;
+    color: #AFA8A8;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+}
+.main-header h3 {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+.main-header h2 {
+    font-size: 3rem;
+    margin: 0;
+}
+.main-header {
+    animation-name: swipe-left;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+/* OPTIONS LIST IE: SELECT CHAR, CREATE CHAR */
+.options-list {
+    font-family: 'NewRodinProM', serif;
+    color: #AFA8A8;
+    font-size: 1.5rem;
+    position: fixed;
+    left: 5%;
+    top: 60%;
+    /*  ANIMATIONS  */
+    animation-name: swipe-left;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.options-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.options-list ul li {
+    margin: 10px;
+}
+.options-list ul li button:hover{
+    transform: scale(1.2);
+}
+/* OPTIONS LIST BUTTON */
+.options-list ul li button {
+    font-family: 'NewRodinPro', serif;
+    color: #AFA8A8;
+    font-size: 2.0rem;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.options-list ul li .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #AFA8A8;
+    transition: width 0.2s ease-out;
+}
+
+.options-list ul li button:hover .underline {
+    width: 100%;
+}

@@ -1,0 +1,47 @@
+﻿<div class="main-container @mainContainerClass slide-left" style="@(!CurrentlySwitchingMain ? "" : "transition: opacity 1s linear;")">
+    <audio src="./music/ruletheworld.mp3" loop autoplay="true"></audio>
+    <div class="main-header">
+        <h3>EMANSZA</h3>
+        <h2>GAME TITLE HERE</h2>
+    </div>
+    <div class="options-list">
+        <ul>
+            <li>
+                <button @onclick="ShowSelectCharacter">
+                    <div class="underline"></div>
+                    SELECT CHARACTER
+                </button>
+            </li>
+            <li>
+                <button @onclick="ShowSettings">
+                    <div class="underline"></div>
+                    SETTINGS
+                </button>
+            </li>
+            <li>
+                <button @onclick="Leave">
+                    <div class="underline"></div>
+                    LEAVE
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public bool CurrentlySwitchingMain { get; set; }
+    
+    [Parameter]
+    public string mainContainerClass { get; set; }
+
+    [Parameter]
+    public EventCallback ShowSelectCharacter { get; set; }
+
+    [Parameter]
+    public EventCallback ShowSettings { get; set; }
+
+    [Parameter]
+    public EventCallback Leave { get; set; }
+    [Parameter] public string selectContainerClass { get; set; }
+}

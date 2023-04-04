@@ -1,0 +1,57 @@
+﻿.select-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.return-container {
+    font-family: 'NewRodinProM', serif;
+    color: #AFA8A8;
+    font-size: 1.5rem;
+    position: fixed;
+    left: 2%;
+    top: 90%;
+    /*  ANIMATIONS  */
+    animation-name: swipe-left;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.return-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.return-container ul li {
+    margin: 10px;
+}
+.return-container ul li button:hover{
+    transform: scale(1.2);
+}
+/* OPTIONS LIST BUTTON */
+.return-container ul li button {
+    font-family: 'NewRodinPro', serif;
+    color: #AFA8A8;
+    font-size: 2.0rem;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.return-container ul li .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #AFA8A8;
+    transition: width 0.2s ease-out;
+}
+
+.return-container ul li button:hover .underline {
+    width: 100%;
+}

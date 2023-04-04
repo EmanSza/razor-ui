@@ -1,0 +1,102 @@
+﻿@page "/"
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/MainContent.css" />
+<link rel="stylesheet" href="css/main-animations.css" />
+<link rel="stylesheet" href="css/SelectCharacter.css" />
+<video autoplay loop muted>
+    <source src="./video/background.mp4" type="video/mp4">
+</video>
+<div class="container">
+    <MainContent ShowSelectCharacter="ShowSelectCharacter" ShowSettings="ShowSettings" Leave="Leave"
+                 mainContainerClass="@mainContainerClass" selectContainerClass="@selectContainerClass" CurrentlySwitchingMain="CurrentlySwitchingMain"
+                 />
+    <SelectCharacter selectContainerClass="@selectContainerClass" 
+                      GoBackCharacter="GoBackCharacter" ShowCharBool="ShowCharBool"/>
+    <SettingsContent settingsContainerClass="@settingsContainerClass" 
+                      GoBackSettings="GoBackSettings" ShowSettingsBool ="ShowSettingsBool"/>
+</div>
+
+@code {
+    bool CurrentlySwitchingMain = false;
+    bool ShowSettingsBool = false;
+    bool ShowCharBool = false;
+    string mainContainerClass = "slide-right";
+    string selectContainerClass = "";
+    string settingsContainerClass = "";
+
+    void ShowSelectCharacter()
+    {
+        ShowCharBool = true;
+        mainContainerClass = "slide-left";
+        selectContainerClass = "slide-left-back";
+        CurrentlySwitchingMain = true;
+
+        // Delay the display:none property
+        Task.Run(async () =>
+        {
+            await Task.Delay(1000);
+            ShowCharBool = false;
+            mainContainerClass = "slide-left";
+        });
+    }
+    void ShowSettings()
+    {
+        ShowSettingsBool = true;
+        mainContainerClass = "fade-out";
+        settingsContainerClass = "fade-in";
+        CurrentlySwitchingMain = true;
+
+    // Delay the display:none property
+        Task.Run(async () =>
+        {
+            await Task.Delay(1000);
+            ShowSettingsBool = false;
+        });
+    }
+
+    void Leave()
+    {
+        // code for leaving game
+    }
+
+    void GoBackCharacter()
+    {
+        mainContainerClass = "slide-right";
+        selectContainerClass = "slide-left";
+        CurrentlySwitchingMain = false;
+
+    // Delay the display:none property
+        Task.Run(async () =>
+        {
+            await Task.Delay(1000);
+            ShowCharBool = false;
+            mainContainerClass = "slide-left dissapear";
+
+    // Delay the display:none property
+            await Task.Delay(1000);
+            selectContainerClass = "";
+        });
+
+    }
+
+    void GoBackSettings()
+    {
+        mainContainerClass = "fade-in";
+        settingsContainerClass = "fade-out";
+
+    // Delay the display:none property
+        Task.Run(async () =>
+        {
+            await Task.Delay(1000);
+            ShowSettingsBool = false;
+            CurrentlySwitchingMain = false;
+
+    // Delay the display:none property
+            await Task.Delay(1000);
+            settingsContainerClass = "";
+        });
+
+    }
+
+}

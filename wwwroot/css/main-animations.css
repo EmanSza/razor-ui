@@ -1,0 +1,83 @@
+﻿/* SWIPE ANIMATIONS */
+.slide-left {
+    animation-name: slide-left-animation;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+
+.slide-left-back {
+    animation-name: slide-left-back-animation;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+.slide-right {
+    animation-name: slide-right-animation;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+.slide-right-back {
+    animation-name: slide-right-back-animation;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+@keyframes slide-left-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-left-back-animation {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes slide-right-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes slide-right-back-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+/* have fade-out slowly fade out and disappear*/
+.fade-out {
+    animation-name: fade-out-animation;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-out-animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* have fade-in slowly fade in and appear*/
+.fade-in {
+    animation-name: fade-in-animation;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

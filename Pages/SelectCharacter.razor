@@ -1,0 +1,66 @@
+﻿<div class="select-container @selectContainerClass slide-left-back" style="@(!ShowCharBool ? "display:none;" : "")">
+    <div class="character-header">
+        Select Character
+    </div>
+    <div class="character-container">
+        <div class="character-card-container">
+            <div class="character-card">
+                <div class="character-model"></div>
+                    <div class="character-name">
+                        <div class="underline"></div>
+                            <div class="name">
+                                Name
+                            </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <div class="return-container">
+        <ul>
+            <li>
+                <button @onclick="HandleGoBackCharacter" class="return-button">
+                    <div class="underline"></div>
+                    Return
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public bool showSelectCharacterBool { get; set; }
+    [Parameter]
+    public bool ShowCharBool { get; set; }
+
+    
+    [Parameter] public string selectContainerClass { get; set; }
+
+
+    [Parameter]
+    public EventCallback GoBackCharacter { get; set; }
+
+    private async Task HandleGoBackCharacter()
+    {
+        await GoBackCharacter.InvokeAsync();
+    }
+    
+    class Character
+    {
+        public string Name { get; set; }
+        public string Model { get; set; }
+    }
+        @*Create an Array and store 2 characters in it*@
+    List<Character> _characters = new List<Character>()
+    {
+        new Character() { Name = "Character 1", Model = "Character 1 Model" },
+        new Character() { Name = "Character 2", Model = "Character 2 Model" }
+    };
+        @* If the array has a value generate html *@
+
+    public void generateHtml()
+    {
+        
+    }
+        
+}
